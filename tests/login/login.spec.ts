@@ -5,13 +5,13 @@ test("login without page object", async ({ page }) => {
   await page.locator('[data-test="nav-sign-in"]').click();
   await page
     .locator('[data-test="email"]')
-    .fill("customer@practicesoftwaretesting.com");
-  await page.locator('[data-test="password"]').fill("welcome01");
+    .fill("sarah@practicesoftwaretesting.com");
+  await page.locator('[data-test="password"]').fill("g5duR*^vf4iL@0$1");
   await page.locator('[data-test="login-submit"]').click();
   await expect(page.locator('[data-test="nav-menu"]')).toContainText(
-    "Jane Doe"
+    "Sarah Doe",
   );
   await expect(page.locator('[data-test="page-title"]')).toContainText(
-    "My account"
+    "My account",
   );
 });
