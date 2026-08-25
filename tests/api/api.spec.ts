@@ -15,7 +15,7 @@ test("POST /users/login", async ({ request }) => {
   const response = await request.post(apiUrl + "/users/login", {
     data: {
       email: "sarah@practicesoftwaretesting.com",
-      password: "g5duR*^vf4iL@0$1",
+      password: "ROva5mgC%x!^85@s",
     },
   });
 
