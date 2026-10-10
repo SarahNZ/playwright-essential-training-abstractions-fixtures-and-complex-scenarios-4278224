@@ -1,0 +1,52 @@
+Page Objects
+- abstract away DOM elements
+- separates test code and implementation
+- simplifies test maintenance
+=> Create a page object locator for any element you interact with
+
+A locator is the object or query your automation uses to find an element, such as page.getByRole("button", { name: "Save"})
+
+A selector is the expression or criteria used to identify it. E.g. CSS selector (button.save) or text/role criteria. 
+
+- Create a group of actions (steps) on a page
+- Don't add assertions to the page object
+- Keep assertions in the test itself
+
+Data Creation Models
+- Use a data factory, which are functions that are easy to execute within test code (to create or modify test data)
+
+Common functions
+- Don't duplicate code (keep things DRY)
+- Abstract aay common functions if you do something more than once
+
+Static Data (Data that never changed)
+E.g. users: sarah@gmail.com
+Product: Burger
+
+- Should be able to recreate it if for some reason it does changed
+- Data state shouldn't change either
+
+Dynamic Data (data that is created or generated as part of the test)
+- Newly registered users
+- Products created as part of the test
+
+Aim for 15% usage of static data and 85% of dynamic data
+-> Risk that other users will change your data
+
+Datafactory
+- A helper function that interacts with a system to create data for you
+- Ensures data is freshly created
+
+Data cleanup strategy
+E.g. After each test, or a wider clean up after each automation suite run
+- or reset database/test data (to a golden copy) on a schedule 
+
+Run Playwright in UI mode (so we can view the browser and open the network tab to get the API called)
+npx playwright test --ui
+
+Response Codes
+204 - no response provided
+
+Up to here: https://www.linkedin.com/learning/playwright-essential-training-abstractions-fixtures-and-complex-scenarios/creating-a-data-factory-for-playwright-tests?autoSkip=true&resume=false
+The test is passing, but the registration endpoint is not being hit. Need to investigate. Think I probably haven't
+entered all the correct info. Then change the test to register the user using the endpoint instead of the UI.
